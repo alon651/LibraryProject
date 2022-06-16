@@ -6,7 +6,7 @@ function Book(title, author, pages, read) {
   this.id = 0;
   this.changeRead = function () {
     console.log("before: " + this.read);
-    this.read = !this.read;
+    this.read = !read;
     console.log("after: " + this.read);
     lib.display();
   };
