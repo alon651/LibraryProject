@@ -5,6 +5,7 @@ function Book(title, author, pages, read) {
   this.read = read;
   this.changeRead = function () {
     this.read = !this.read;
+    lib.display();
   };
   this.delete = function () {
     console.log(this.title + " trying to delete");
@@ -54,9 +55,9 @@ function createCard(value) {
   //read status
   const readStatus = document.createElement("div");
   if (value.read) {
-    pages.textContent = "the book was read";
+    readStatus.textContent = "the book was read";
   } else {
-    pages.textContent = "the book wasn't read";
+    readStatus.textContent = "the book wasn't read";
   }
   card.appendChild(readStatus);
 
