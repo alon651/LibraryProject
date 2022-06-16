@@ -1,0 +1,128 @@
+
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.name-txt{
+    font-family: 'Cedarville Cursive', cursive;
+    text-decoration: none;
+    color: var(--Footer-Text-color);
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+.header{
+    font-family: cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-book-btn{
+    background-color: white;
+    height: 10%;
+    width: 20%;
+    font-size: 2vw;
+    border-radius: 50px;
+}
+.add-book-btn:hover {
+    background-image: linear-gradient(rgba(95, 88, 186, 0.4) 0 0);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+.footer{
+    --Footer-Text-color: hwb(0 85% 15%);
+    color: var(--Footer-Text-color);
+    padding: 8px;
+    background-color: #2a2c39;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+.book-display{
+    margin-left: 100px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content:left;
+}
+.book-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 12px;
+    gap: 12px;
+    height: 200px;
+    width: 150px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.book-title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close-btn{
+    border: none;
+    background-color: white;
+    font-size: x-large;
+}
+.close-btn:hover{
+    color: blue;
+}
+
+#sumbit-btn{
+    background-color: white;
+    border-radius: 20px;
+}
+#sumbit-btn:hover{
+    background-image: linear-gradient(rgba(113, 112, 123, 0.4) 0 0);
+}
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+
+.book-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: large;
+}
+.form-title{
+    align-self: center;
+    text-decoration: underline;
+}
