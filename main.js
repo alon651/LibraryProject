@@ -4,39 +4,41 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   this.id = 0;
-  this.changeRead = function () {
-    console.log("before: " + this.read);
-    this.read = !read;
-    console.log("after: " + this.read);
-    lib.display();
-  };
-  this.delete = function () {
-    console.log(" trying to delete " + title);
-    const index = lib.books.findIndex((object) => {
-      return object.id == this.id;
-    });
-    lib.remove(index);
-  };
 }
+Book.prototype.changeRead = function () {
+  console.log("before: " + this.read);
+  this.read = !read;
+  console.log("after: " + this.read);
+  lib.display();
+};
+Book.prototype.delete = function () {
+  const index = lib.books.findIndex((object) => {
+    return object.id == this.id;
+  });
+  lib.remove(index);
+};
 function Library() {
   this.books = [];
   this.idOfNextBook = 0;
-  this.add = function (book) {
-    book.id = this.idOfNextBook;
-    this.books.push(book);
-    this.idOfNextBook += 1;
-  };
-  this.display = function () {
-    elements = [];
-    display.replaceChildren();
-    this.books.forEach(createCard);
-    // display.replaceChildren(elements);
-  };
-  this.remove = function (index) {
-    this.books.splice(index, 1);
-    lib.display();
-  };
+
+  
 }
+Library.prototype.add = function (book) {
+  book.id = this.idOfNextBook;
+  this.books.push(book);
+  this.idOfNextBook += 1;
+};
+Library.prototype.remove = function (index) {
+  this.books.splice(index, 1);
+  lib.display();
+};
+Library.prototype.display = function () {
+  elements = [];
+  display.replaceChildren();
+  this.books.forEach(createCard);
+  // display.replaceChildren(elements);
+};
+
 let elements = [];
 let lib = new Library();
 var display = document.getElementById("book-display");
