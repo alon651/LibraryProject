@@ -12,8 +12,9 @@ Book.prototype.changeRead = function () {
 };
 
 Book.prototype.delete = function () {
-  const index = lib.books.findIndex((object) => {
-    return object.id == this.id;
+  var id = this.id;
+  const index = lib.books.findIndex(function (Book) {
+    return Book.id === id;
   });
   lib.remove(index);
 };
@@ -54,7 +55,9 @@ function createCard(value) {
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "x";
   deleteBtn.classList.add("close-btn");
-  deleteBtn.onclick = value.delete;
+  deleteBtn.onclick = function () {
+    value.delete();
+  };
   titleElement.textContent += value.title;
   titleElement.appendChild(deleteBtn);
   card.appendChild(titleElement);

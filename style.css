@@ -88,6 +88,7 @@ body{
 #sumbit-btn{
     background-color: white;
     border-radius: 20px;
+    height: 30px;
 }
 #sumbit-btn:hover{
     background-image: linear-gradient(rgba(113, 112, 123, 0.4) 0 0);
@@ -113,7 +114,7 @@ body{
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 25%; /* Could be more or less, depending on screen size */
   }
 
 .book-form{
