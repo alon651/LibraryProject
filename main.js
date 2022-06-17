@@ -5,12 +5,12 @@ function Book(title, author, pages, read) {
   this.read = read;
   this.id = 0;
 }
+
 Book.prototype.changeRead = function () {
-  console.log("before: " + this.read);
-  this.read = !read;
-  console.log("after: " + this.read);
+  this.read = !this.read;
   lib.display();
 };
+
 Book.prototype.delete = function () {
   const index = lib.books.findIndex((object) => {
     return object.id == this.id;
@@ -20,23 +20,23 @@ Book.prototype.delete = function () {
 function Library() {
   this.books = [];
   this.idOfNextBook = 0;
-
-  
 }
+
 Library.prototype.add = function (book) {
   book.id = this.idOfNextBook;
   this.books.push(book);
   this.idOfNextBook += 1;
 };
+
 Library.prototype.remove = function (index) {
   this.books.splice(index, 1);
   lib.display();
 };
+
 Library.prototype.display = function () {
   elements = [];
   display.replaceChildren();
   this.books.forEach(createCard);
-  // display.replaceChildren(elements);
 };
 
 let elements = [];
@@ -80,7 +80,10 @@ function createCard(value) {
   const changeBtn = document.createElement("button");
   changeBtn.textContent = "Change read status";
   changeBtn.classList.add("book-read");
-  changeBtn.onclick = value.changeRead;
+  changeBtn.onclick = function () {
+    value.changeRead();
+  };
+
   card.appendChild(changeBtn);
   //return the card
   display.appendChild(card);
