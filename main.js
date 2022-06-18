@@ -1,3 +1,5 @@
+const lib = new Library();
+const display = document.getElementById("book-display");
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -12,10 +14,8 @@ Book.prototype.changeRead = function () {
 };
 
 Book.prototype.delete = function () {
-  const id = this.id;
-  const index = lib.books.findIndex(function (Book) {
-    return Book.id === id;
-  });
+  const { id } = this;
+  const index = lib.books.findIndex((Book) => Book.id === id);
   lib.remove(index);
 };
 function Library() {
@@ -35,21 +35,17 @@ Library.prototype.remove = function (index) {
 };
 
 Library.prototype.display = function () {
-  elements = [];
   display.replaceChildren();
   this.books.forEach(createCard);
 };
 
-let elements = [];
-const lib = new Library();
-const display = document.getElementById("book-display");
 function createCard(value) {
-  //create the card itself
+  // create the card itself
   const card = document.createElement("div");
   card.classList.add("book-card");
 
-  //create children
-  //title
+  // create children
+  // title
   const titleElement = document.createElement("div");
   titleElement.classList.add("book-title");
   const deleteBtn = document.createElement("button");
@@ -61,17 +57,17 @@ function createCard(value) {
   titleElement.textContent += value.title;
   titleElement.appendChild(deleteBtn);
   card.appendChild(titleElement);
-  //author
+  // author
   const author = document.createElement("div");
-  author.textContent = "by: " + value.author;
+  author.textContent = `by: ${value.author}`;
   card.appendChild(author);
-  //pages
+  // pages
 
   const pages = document.createElement("div");
-  pages.textContent = "has " + value.pages + " pages";
+  pages.textContent = `has ${value.pages} pages`;
   card.appendChild(pages);
 
-  //read status
+  // read status
   const readStatus = document.createElement("div");
   if (value.read) {
     readStatus.textContent = "the book was read";
@@ -88,19 +84,18 @@ function createCard(value) {
   };
 
   card.appendChild(changeBtn);
-  //return the card
+  // return the card
   display.appendChild(card);
 }
 
-var btn = document.getElementsByClassName("add-book-btn")[0];
-var modal = document.getElementById("myModal");
+const btn = document.getElementsByClassName("add-book-btn")[0];
+const modal = document.getElementById("myModal");
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 };
 
-let btnAdd = document.getElementById("btn-add");
 btn.onclick = function () {
   modal.style.display = "block";
 };
