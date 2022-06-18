@@ -12,7 +12,7 @@ Book.prototype.changeRead = function () {
 };
 
 Book.prototype.delete = function () {
-  var id = this.id;
+  const id = this.id;
   const index = lib.books.findIndex(function (Book) {
     return Book.id === id;
   });
@@ -41,8 +41,8 @@ Library.prototype.display = function () {
 };
 
 let elements = [];
-let lib = new Library();
-var display = document.getElementById("book-display");
+const lib = new Library();
+const display = document.getElementById("book-display");
 function createCard(value) {
   //create the card itself
   const card = document.createElement("div");
@@ -105,14 +105,13 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-var submitBtn = document.getElementById("sumbit-btn");
+const submitBtn = document.getElementById("sumbit-btn");
 submitBtn.onclick = function () {
-  var answer = document.getElementById("book-form");
-  var bookName = document.getElementById("bookName").value;
-  var author = document.getElementById("author").value;
-  var pages = document.getElementById("pages").value;
-  var read = document.getElementById("read").checked;
-  var b = new Book(bookName, author, pages, read);
+  const bookName = document.getElementById("bookName").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").checked;
+  const b = new Book(bookName, author, pages, read);
   lib.add(b);
   modal.style.display = "none";
   lib.display();
