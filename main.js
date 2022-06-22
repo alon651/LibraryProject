@@ -1,43 +1,49 @@
+/* eslint-disable max-classes-per-file */
 const lib = new Library();
 const display = document.getElementById('book-display');
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = 0;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = 0;
+  }
+
+  changeRead() {
+    this.read = !this.read;
+    lib.display();
+  }
+
+  delete() {
+    const { id } = this;
+    const index = lib.books.findIndex((Book) => Book.id === id);
+    lib.remove(index);
+  }
 }
 
-Book.prototype.changeRead = function () {
-  this.read = !this.read;
-  lib.display();
-};
+class Library {
+  constructor() {
+    this.books = [];
+    this.idOfNextBook = 0;
+  }
 
-Book.prototype.delete = function () {
-  const { id } = this;
-  const index = lib.books.findIndex((Book) => Book.id === id);
-  lib.remove(index);
-};
-function Library() {
-  this.books = [];
-  this.idOfNextBook = 0;
+  add(book) {
+    book.id = this.idOfNextBook;
+    this.books.push(book);
+    this.idOfNextBook += 1;
+  }
+
+  remove(index) {
+    this.books.splice(index, 1);
+    lib.display();
+  }
+
+  display() {
+    display.replaceChildren();
+    this.books.forEach(createCard);
+  }
 }
-
-Library.prototype.add = function (book) {
-  book.id = this.idOfNextBook;
-  this.books.push(book);
-  this.idOfNextBook += 1;
-};
-
-Library.prototype.remove = function (index) {
-  this.books.splice(index, 1);
-  lib.display();
-};
-
-Library.prototype.display = function () {
-  display.replaceChildren();
-  this.books.forEach(createCard);
-};
 
 function createCard(value) {
   // create the card itself
@@ -100,7 +106,7 @@ btn.onclick = function () {
   modal.style.display = 'block';
 };
 
-const submitBtn = document.getElementById('sumbit-btn');
+const submitBtn = document.getElementById('submit-btn');
 submitBtn.onclick = function () {
   const bookName = document.getElementById('bookName').value;
   const author = document.getElementById('author').value;
