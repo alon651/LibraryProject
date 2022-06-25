@@ -85,12 +85,12 @@ body{
     color: blue;
 }
 
-#sumbit-btn{
+#submit-btn{
     background-color: white;
     border-radius: 20px;
     height: 30px;
 }
-#sumbit-btn:hover{
+#submit-btn:hover{
     background-image: linear-gradient(rgba(113, 112, 123, 0.4) 0 0);
 }
 

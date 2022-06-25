@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>the library</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="header">
-        <h1>The Library</h1>
+      <h1>The Library</h1>
     </div>
     <div class="container" id="btn-add">
-        <button class="add-book-btn" id="a">
-            +add book
-        </button>
-        <div class="book-display" id="book-display">
-            
-        </div>
+      <button class="add-book-btn" id="a">+add book</button>
+      <div class="book-display" id="book-display"></div>
     </div>
-    <div class="footer">by:&nbsp;<a class ="name-txt" href="https://github.com/alon651">Alon651</a></div>
+    <div class="footer">
+      by:&nbsp;<a class="name-txt" href="https://github.com/alon651">Alon651</a>
+    </div>
 
-
-
-
-
-
-
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <form class="book-form">
-        <h1 class="form-title">ADD NEW BOOK</h1>
-        <div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <form class="book-form">
+          <h1 class="form-title">ADD NEW BOOK</h1>
+          <div>
             <label for="bookName">book name:</label>
-            <input name="bookName" id="bookName">
-        </div>
-        <div>
+            <input name="bookName" id="bookName" />
+          </div>
+          <div>
             <label for="author">author:</label>
-            <input name="author" id="author">
-        </div>
-        <div>
+            <input name="author" id="author" />
+          </div>
+          <div>
             <label for="pages">number of pages:</label>
-            <input type="number" name="pages" id="pages">
-        </div>
-        <div>
+            <input type="number" name="pages" id="pages" />
+          </div>
+          <div>
             <label for="read">have you read the book?</label>
-            <input type="checkbox" name="read" id="read" >
-        </div> 
-        <button type="reset" id="sumbit-btn">
-            sumbit
-        </button>
-    </form>
-  </div>
-</div>
-<script src="main.js"></script>
-</body>
+            <input type="checkbox" name="read" id="read" />
+          </div>
+          <button type="reset" id="submit-btn">submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>

@@ -1,6 +1,4 @@
 /* eslint-disable max-classes-per-file */
-const lib = new Library();
-const display = document.getElementById("book-display");
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -21,7 +19,6 @@ class Book {
     lib.remove(index);
   }
 }
-
 class Library {
   constructor() {
     this.books = [];
@@ -44,19 +41,21 @@ class Library {
     this.books.forEach(createCard);
   }
 }
+const lib = new Library();
+const display = document.getElementById('book-display');
 
 function createCard(value) {
   // create the card itself
-  const card = document.createElement("div");
-  card.classList.add("book-card");
+  const card = document.createElement('div');
+  card.classList.add('book-card');
 
   // create children
   // title
-  const titleElement = document.createElement("div");
-  titleElement.classList.add("book-title");
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "x";
-  deleteBtn.classList.add("close-btn");
+  const titleElement = document.createElement('div');
+  titleElement.classList.add('book-title');
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'x';
+  deleteBtn.classList.add('close-btn');
   deleteBtn.onclick = function () {
     value.delete();
   };
@@ -64,27 +63,27 @@ function createCard(value) {
   titleElement.appendChild(deleteBtn);
   card.appendChild(titleElement);
   // author
-  const author = document.createElement("div");
+  const author = document.createElement('div');
   author.textContent = `by: ${value.author}`;
   card.appendChild(author);
   // pages
 
-  const pages = document.createElement("div");
+  const pages = document.createElement('div');
   pages.textContent = `has ${value.pages} pages`;
   card.appendChild(pages);
 
   // read status
-  const readStatus = document.createElement("div");
+  const readStatus = document.createElement('div');
   if (value.read) {
-    readStatus.textContent = "the book was read";
+    readStatus.textContent = 'the book was read';
   } else {
     readStatus.textContent = "the book wasn't read";
   }
   card.appendChild(readStatus);
 
-  const changeBtn = document.createElement("button");
-  changeBtn.textContent = "Change read status";
-  changeBtn.classList.add("book-read");
+  const changeBtn = document.createElement('button');
+  changeBtn.textContent = 'Change read status';
+  changeBtn.classList.add('book-read');
   changeBtn.onclick = function () {
     value.changeRead();
   };
@@ -94,26 +93,25 @@ function createCard(value) {
   display.appendChild(card);
 }
 
-const btn = document.getElementsByClassName("add-book-btn")[0];
-const modal = document.getElementById("myModal");
+const btn = document.getElementsByClassName('add-book-btn')[0];
+const modal = document.getElementById('myModal');
 window.onclick = function (event) {
   if (event.target === modal) {
-    modal.style.display = "none";
+    modal.style.display = 'none';
   }
 };
 
 btn.onclick = function () {
-  modal.style.display = "block";
-};
-
-const submitBtn = document.getElementById("submit-btn");
-submitBtn.onclick = function () {
-  const bookName = document.getElementById("bookName").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").checked;
-  const b = new Book(bookName, author, pages, read);
-  lib.add(b);
-  modal.style.display = "none";
-  lib.display();
+  modal.style.display = 'block';
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.onclick = function () {
+    const bookName = document.getElementById('bookName').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').checked;
+    const b = new Book(bookName, author, pages, read);
+    lib.add(b);
+    modal.style.display = 'none';
+    lib.display();
+  };
 };
